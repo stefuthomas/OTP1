@@ -1,4 +1,6 @@
-import org.testng.annotations.Test;
+import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -7,13 +9,20 @@ public class ArrayEqualityTest {
     public void testSingleDimensionalArrayEquality() {
         int[] a1 = {2, 3, 5, 7};
         int[] a2 = {2, 3, 5, 7, 8};
-        assertArrayEquals("Should be equal", a1, a2);
+        assertFalse(ArrayEquality.areArraysEqual(a1, a2));
     }
 
     @Test
     public void testMultiDimensionalArrayEquality() {
         int[][] a11 = {{2, 3}, {5, 7}, {11, 13}};
         int[][] a12 = {{2, 3}, {5, 7}, {11, 14}};
-        assertArrayEquals("Should not be equal", a11, a12);
+        assertFalse(ArrayEquality.areMultidimensionalArraysEqual(a11, a12));
+    }
+
+    @Test
+    public void testArrayTypes() {
+        String[] a1 = {"a", "b", "c"};
+        int[][] a11 = {{2, 3}, {5, 7}, {11, 13}};
+        assertFalse(ArrayEquality.areArraysOfSameType(a1, a11));
     }
 }
