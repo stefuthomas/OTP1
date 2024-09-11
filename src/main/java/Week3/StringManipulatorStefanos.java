@@ -1,3 +1,5 @@
+package Week3;
+
 public class StringManipulatorStefanos {
     public String reverse(String input) {
         StringBuilder reversed = new StringBuilder();

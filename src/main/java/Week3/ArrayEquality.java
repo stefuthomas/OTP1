@@ -1,3 +1,5 @@
+package Week3;
+
 public class ArrayEquality {
     public static boolean areArraysEqual(int[] a1, int[] a2) {
         if (a1 == null || a2 == null) {
